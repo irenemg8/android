@@ -684,7 +684,7 @@ public class MainActivity extends AppCompatActivity {
         // URL de destino
         // URL de destino correcta para enviar la medición
 
-        String urlDestino = "http://192.168.0.26:8080/mediciones"; // URL de destino ---------- CAMBIAR POR LA URL DE DESTINO
+        String urlDestino = "http://172.20.10.5:8080/mediciones";         // URL de destino ---------- CAMBIAR POR LA URL DE DESTINO
 
         //String urlDestino = "http://192.168.59.175/Proyecto_Biometria/src/api/v1.0/index.php";
         // Crear un objeto JSON e introducir valores
