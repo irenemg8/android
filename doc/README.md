@@ -137,6 +137,7 @@ getLongitud() / setLongitud(double): Obtiene o establece la longitud de la ubica
 ### Filtros de Dispositivos
 Para buscar un dispositivo BLE específico, como uno con un UUID definido, puedes usar el método buscarEsteDispositivoBTLE300() que se encarga de comparar el UUID de cada beacon detectado con el UUID objetivo.
 Para asegurarnos de que se escriben correctamente los 16 caracteres, aquí tenemos un ejemplo de cómo solucionarlo:
+
 private void buscarEsteDispositivoBTLE300(final String dispositivoBuscado) {
     if (dispositivoBuscado.length() != 16) {
         Log.e(ETIQUETA_LOG, "Error: el UUID debe tener 16 caracteres");
