@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:rotation="0"
+    android:rotationX="-2"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/botonBuscarDispositivosBTLE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="botonBuscarDispositivosBTLEPulsado"
+        android:text="Buscar Dispositivos BTLE nou 4" />
+
+    <Button
+        android:id="@+id/botonDetenerBusquedaDispositivosBTLE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="botonDetenerBusquedaDispositivosBTLEPulsado"
+        android:text="Detener búsaqueda Dispositivos BTLE" />
+
+    <Button
+        android:id="@+id/botonBuscarNuestroDispositivoBTLE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="botonBuscarNuestroDispositivoBTLEPulsado"
+        android:text="Buscar nuestro dispositivo  BTLE" />
+
+    <Button
+        android:id="@+id/mandarPost"
+        android:layout_width="173dp"
+        android:layout_height="59dp"
+
+        android:text="mandarPost"
+        android:textColorLink="#DB0707" />
+
+
+    <TextView
+        android:id="@+id/dispositivoBtle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#FF69B4" />
+
+    <TextView
+        android:id="@+id/nuestrodisp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#F01515"
+        android:layout_margin="26dp" />
+
+    <TextView
+        android:id="@+id/valoresSensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valores del sensor"
+        android:textColor="#00A2F0"
+        android:textSize="20dp"
+        android:layout_margin="26dp" />
+
+
+</android.widget.LinearLayout>
