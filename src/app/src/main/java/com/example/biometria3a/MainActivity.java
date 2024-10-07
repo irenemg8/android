@@ -246,6 +246,12 @@ public class MainActivity extends AppCompatActivity {
     // Texto -> buscarEsteDispositivoBTLE300() ->
     // Se ejecuta cuando se pulsa el botón de "buscar nuestro dispositivo BTLE". Se busca el dispositivo con el nombre "INNOVARESCREAR."
     private void buscarEsteDispositivoBTLE300(final String dispositivoBuscado) {
+
+        if (dispositivoBuscado.length() != 16) {
+            Log.e(ETIQUETA_LOG, "Error: debe tener 16 caracteres");
+            return;
+        }
+
         // super.onScanResult(ScanSettings.SCAN_MODE_LOW_LATENCY, result); para ahorro de energía. De momento no lo usaremos
 
         this.callbackDelEscaneo = new ScanCallback() {
@@ -550,7 +556,7 @@ public class MainActivity extends AppCompatActivity {
     // Se ejecuta cuando se pulsa el botón de "buscar nuestro dispositivo BTLE". Se busca el dispositivo con el nombre "INNOVARESCREAR."
     public void botonBuscarNuestroDispositivoBTLEPulsado(View v) {
         Log.d(ETIQUETA_LOG, " boton nuestro dispositivo BTLE Pulsado");
-        this.buscarEsteDispositivoBTLE300("INNOVARESCREAR.");  //-----------------CAMBIAR POR EL NOMBRE DEL DISPOSITIVO
+        this.buscarEsteDispositivoBTLE300("ELECTRODOMESTICO");  //-----------------CAMBIAR POR EL NOMBRE DEL DISPOSITIVO
 
 
     } // ()
