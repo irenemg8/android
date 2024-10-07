@@ -7,6 +7,9 @@ public class Medidas {
     private double latitud;  // Latitud de la ubicacion donde se realizo la medicion
     private double longitud;  // Longitud de la ubicacion donde se realizo la medicion
 
+    public Medidas() {
+    }
+
     // Getters y Setters
     // getMedicion: Obtiene el valor de la medicion
     // -> getMedicion() -> int

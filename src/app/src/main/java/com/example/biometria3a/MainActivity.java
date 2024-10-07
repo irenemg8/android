@@ -634,17 +634,17 @@ public class MainActivity extends AppCompatActivity {
     // --------------------------------------------------------------
     // --------------------------------------------------------------
 
-    @Override
+
     // Bundle -> onCreate() ->
     // Se ejecuta al principio de la aplicación para inicializar la actividad. Se obtiene el TextView y se inicializa el bluetooth
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // Establece el layout de la actividad
 
-// Inicializa el TextView 
+        // Inicializa el TextView
         textViewDispositivos = findViewById(R.id.dispositivoBtle); // Obtener el TextView por su ID
         dispositivosEncontrados = new StringBuilder(); // Inicializar el StringBuilder
-
 
         mandarPost = findViewById(R.id.mandarPost); // Obtener el botón por su ID
         mandarPost.setOnClickListener(new View.OnClickListener() { // Listener para el botón de enviar POST
@@ -653,14 +653,23 @@ public class MainActivity extends AppCompatActivity {
                 boton_enviar_pulsado_client(v);  // Llamar al método de enviar POST
             }
         });
-        Log.d(ETIQUETA_LOG, " onCreate(): empieza ");
+        Log.d(ETIQUETA_LOG, "onCreate(): empieza");
         inicializarBlueTooth();
-        Log.d(ETIQUETA_LOG, " onCreate(): termina ");
+        Log.d(ETIQUETA_LOG, "onCreate(): termina");
 
-        // Llamar a la función hacerPeticionFake
-        hacerPeticionFake();
-    } // onCreate()
+        // Inicializamos la lógica fake
+        LogicaFake logicaFake = new LogicaFake();
 
+        // Aquí podrías crear un objeto Medidas con datos de ejemplo
+        Medidas medicionEjemplo = new Medidas();
+        medicionEjemplo.setMedicion(Integer.parseInt("123"));
+        medicionEjemplo.setTipoSensor(3);
+        medicionEjemplo.setLatitud(Double.parseDouble("12.34"));
+        medicionEjemplo.setLongitud(Double.parseDouble("56.78"));
+
+        // Llamamos al método guardarMedicion de la lógica fake
+        logicaFake.guardarMedicion(medicionEjemplo);
+    }
     // --------------------------------------------------------------
     // --------------------------------------------------------------
     @Override
