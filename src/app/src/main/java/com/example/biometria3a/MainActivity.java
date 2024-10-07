@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
     private StringBuilder dispositivosEncontrados; // Para almacenar los dispositivos encontrados
     // --------------------------------------------------------------
     // Almacenar valores de Major y Minor
-     double valorMinor;
-     double valorMajor; 
+    double valorMinor;
+    double valorMajor;
 
 
     private static final int CODIGO_PETICION_PERMISOS = 11223344; // Poner aquí cualquier número
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(ETIQUETA_LOG, " buscarTodosLosDispositivosBTL(): instalamos scan callback ");
 
-        
+
         this.callbackDelEscaneo = new ScanCallback() {
             // onScanResult() se ejecuta cuando se encuentra un dispositivo bluetooth
             // Z, ScanResult -> onScanResult() -> 
@@ -318,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(ETIQUETA_LOG, "  buscarEsteDispositivoBTLE(): empezamos a escanear buscando: " + dispositivoBuscado);
         Log.d(ETIQUETA_LOG, "  buscarEsteDispositivoBTLE(): empezamos a escanear buscando: " + dispositivoBuscado
-              + " -> " + Utilidades.stringToUUID( dispositivoBuscado ) );
+                + " -> " + Utilidades.stringToUUID( dispositivoBuscado ) );
 
         // Si no tenemos permisos, los solicitamos al usuario
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
@@ -380,7 +380,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             // Z, ScanResult -> onScanResult() ->
             public void onScanResult(int callbackType, ScanResult resultado) {
-                super.onScanResult(callbackType, resultado); 
+                super.onScanResult(callbackType, resultado);
                 Log.d(ETIQUETA_LOG, "  buscarEsteDispositivoBTLE(): onScanResult() ");
                 mostrarInformacionDispositivoBTLE(resultado); // Mostrar información del dispositivo
                 getMedicionsBeacon(resultado); // Obtener valores de Major y Minor
@@ -590,7 +590,7 @@ public class MainActivity extends AppCompatActivity {
                     new String[]{Manifest.permission.BLUETOOTH_CONNECT},
                     CODIGO_PETICION_PERMISOS);
             return;
-        } 
+        }
         bta.enable(); // Habilitamos el adaptador BT
 
         Log.d(ETIQUETA_LOG, " inicializarBlueTooth(): habilitado =  " + bta.isEnabled());
@@ -640,7 +640,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // Establece el layout de la actividad
- 
+
 // Inicializa el TextView 
         textViewDispositivos = findViewById(R.id.dispositivoBtle); // Obtener el TextView por su ID
         dispositivosEncontrados = new StringBuilder(); // Inicializar el StringBuilder
@@ -656,6 +656,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d(ETIQUETA_LOG, " onCreate(): empieza ");
         inicializarBlueTooth();
         Log.d(ETIQUETA_LOG, " onCreate(): termina ");
+
+        // Llamar a la función hacerPeticionFake
+        hacerPeticionFake();
     } // onCreate()
 
     // --------------------------------------------------------------
@@ -703,8 +706,8 @@ public class MainActivity extends AppCompatActivity {
             */
             valorMajor=valorMajor/1000;
             valorMinor=valorMinor/100;
-            postData.put("hora", "23:00");
-            postData.put("lugar", "Haskovo");
+            //postData.put("hora", "23:00");
+            postData.put("lugar", "Gandía");
             postData.put("id_sensor", 101);
             postData.put("valorGas", valorMajor);
             postData.put("valorTemperatura", valorMinor);
@@ -801,9 +804,28 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
+    // --------------------------------------------------------------
+    // --------------------------------------------------------------
+
+    private void hacerPeticionFake() {
+        String url = "https://tuapi.com/endpoint"; // No se usa una URL real, es solo un ejemplo
+        PeticionarioRESTFake fakePeticionario = new PeticionarioRESTFake();
+
+        fakePeticionario.hacerPeticionREST("GET", url, null, new PeticionarioRESTFake.RespuestaREST() {
+            @Override
+            public void callback(int codigo, String cuerpo) {
+                // Handle the response here
+                Log.d("MainActivity", "Código de respuesta: " + codigo);
+                Log.d("MainActivity", "Cuerpo de la respuesta: " + cuerpo);
+            }
+        });
+    }
 }
 
- // class
+// class
 
 
 // --------------------------------------------------------------
