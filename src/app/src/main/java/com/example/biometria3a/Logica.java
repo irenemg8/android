@@ -20,7 +20,7 @@ public class Logica {
         // Se crea un objeto JSON con los datos de la medición
         String textoJSON = "{\"Medicion\":\"" + medicion.getMedicion() + "\", \"TipoSensor\":\"" + medicion.getTipoSensor() + "\", \"Latitud\":\"" + medicion.getLatitud() + "\", \"Longitud\":\"" + medicion.getLongitud() + "\"}";
         Log.d("JSON", textoJSON);
-        elPeticionario.hacerPeticionREST("POST", "http://172.20.10.2/src/api/v1.0/index.php", textoJSON, //La IP es la de la máquina virtual. ---------- CAMBAIR por la IP de la máquina que ejecute el servidor
+        elPeticionario.hacerPeticionREST("POST", "http://172.20.10.1/src/api/v1.0/index.php", textoJSON, //La IP es la de la máquina virtual. ---------- CAMBAIR por la IP de la máquina que ejecute el servidor
                 new PeticionarioREST.RespuestaREST() {
                     @Override
                     public void callback(int codigo, String cuerpo) {
@@ -28,7 +28,6 @@ public class Logica {
                     }
                 }
         );
-
 
     }
 }
